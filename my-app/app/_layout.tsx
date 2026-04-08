@@ -1,24 +1,24 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
+import { useState, createContext, useContext } from 'react';
 
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export const unstable_settings = {
-  anchor: '(tabs)',
-};
+// Criando o contexto aqui mesmo para não precisar de pasta extra
+const CartContext = createContext<any>(null);
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
+  const [cart, setCart] = useState<any[]>([]);
+
+  const addToCart = (product: any) => {
+    setCart((prev) => [...prev, product]);
+  };
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+    <CartContext.Provider value={{ cart, addToCart }}>
+      <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="(tabs)" />
       </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    </CartContext.Provider>
   );
 }
+
+// Hook para usar o carrinho em qualquer tela
+export const useCart = () => useContext(CartContext);
