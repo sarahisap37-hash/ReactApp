@@ -1,6 +1,6 @@
-# 🛒 E-Commerce Simplificado - React Native
+#  E-Commerce Simplificado - React Native
 
-Este é um aplicativo de e-commerce funcional desenvolvido com **React Native** e **Expo Router**. O projeto foca em uma arquitetura limpa, utilizando componentização reutilizável e gerenciamento de estado global sem a necessidade de pastas externas de contexto, aproveitando a estrutura de layouts do Expo.
+Este é um aplicativo de e-commerce funcional desenvolvido com **React Native** e **Expo Router**. 
 
 ## 🚀 Funcionalidades
 
