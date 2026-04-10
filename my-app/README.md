@@ -1,50 +1,54 @@
-# Welcome to your Expo app 👋
+# 🛒 E-Commerce Simplificado - React Native
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este é um aplicativo de e-commerce funcional desenvolvido com **React Native** e **Expo Router**.
 
-## Get started
+## 🚀 Funcionalidades
 
-1. Install dependencies
+* **Listagem de Produtos:** Consumo de dados via API externa.
+* **Carrinho de Compras:** Adição dinâmica de produtos.
+* **Cálculo de Total:** Somatória automática dos preços dos itens no carrinho.
+* **Navegação por Abas:** Alternância entre a vitrine e o carrinho de compras.
+* **Layout Responsivo:** Design adaptável para diferentes tamanhos de tela.
 
-   ```bash
-   npm install
-   ```
+## 📁 Estrutura de Pastas
 
-2. Start the app
+my-app/
+├── app/
+│   ├── (tabs)/
+│   │   ├── cart.tsx        # Tela do Carrinho
+│   │   ├── index.tsx       # Tela de Listagem (Home)
+│   │   └── _layout.tsx     # Configuração das abas inferiores
+│   └── _layout.tsx         # Layout Raiz (Gerenciamento de Estado Global)
+├── assets/
+│   └── styles/
+│       └── styles.tsx      # Centralização de toda a estética do App
+├── components/
+│   └── ProductCard.tsx     # Componente reutilizável de card de produto
+└── constants/              # Cores e valores fixos
 
-   ```bash
-   npx expo start
-   ```
+#⚙️ Arquitetura Técnica
+1. Gerenciamento de Estado
+Para atender aos requisitos de simplicidade, utilizamos o State Lifting dentro do app/_layout.tsx. Criamos um Contexto interno no arquivo raiz que provê a função addToCart e o estado cart para todas as telas filhas, evitando o erro de parâmetros não-serializáveis na navegação.
 
-In the output, you'll find options to open the app in a
+2. Estilização Centralizada
+Seguindo o padrão de design unificado, todos os estilos foram movidos para assets/styles/styles.tsx. Isso permite que alterações visuais em botões, fontes ou cores reflitam instantaneamente em todo o aplicativo.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+3. Navegação Hierárquica
+Stack Navigation: Utilizada no nível raiz para gerenciar o fluxo principal.
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Tab Navigation: Utilizada dentro do grupo (tabs) para a experiência de usuário clássica de e-commerce mobile.
 
-## Get a fresh project
+#S Como rodar o projeto
+Clone o repositório:
 
-When you're ready, run:
+Bash
+git clone [https://github.com/seu-usuario/nome-do-projeto.git](https://github.com/seu-usuario/nome-do-projeto.git)
+Instale as dependências:
 
-```bash
-npm run reset-project
-```
+Bash
+npm install
+Inicie o servidor do Expo:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Bash
+npx expo start
+"""
