@@ -55,3 +55,9 @@ Seguindo o padrão de design unificado, todos os estilos foram movidos para `ass
    ```bash
    npx expo start
    ```
+   
+4. **Para abrir use:**
+   ```bash
+   npm run web
+   ```
+
