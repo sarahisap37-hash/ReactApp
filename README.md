@@ -2,7 +2,7 @@
 
 Este é um aplicativo de e-commerce funcional desenvolvido com **React Native** e **Expo Router**. 
 
-## 🚀 Funcionalidades
+##  Funcionalidades
 
 - **Listagem de Produtos**: Consumo.
 - **Carrinho de Compras**: Adição de produtos.
@@ -27,7 +27,7 @@ my-app/
 └── constants/              # Cores e valores fixos
 ```
 
-## ⚙️ Arquitetura Técnica
+##  Arquitetura Técnica
 
 ### 1. Gerenciamento de Estado
 Para atender aos requisitos de simplicidade, utilizamos o **State Lifting** dentro do `app/_layout.tsx`. Criamos um Contexto interno no arquivo raiz que provê a função `addToCart` e o estado `cart` para todas as telas filhas, evitando o erro de parâmetros não-serializáveis na navegação.
